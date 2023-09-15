@@ -16,4 +16,9 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/fira_sans_regular</item>
     </style>
+    <style name="customRoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">6dp</item>
+        <item name="cornerSizeTopRight">6dp</item>
+    </style>
 </resources>

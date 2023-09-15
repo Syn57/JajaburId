@@ -65,4 +65,6 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.13.0'
+    //Material design
+//    implementation 'com.android.support:design:27.0.2'
 }

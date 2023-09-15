@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.folkatech.jajaburid.R
 import com.folkatech.jajaburid.databinding.ActivityMainBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,15 +18,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Setup view
-        supportActionBar?.hide()
+        //View configuration
+        initView()
 
-        setUpBannerView()
+
+
 
 
     }
 
-    private fun setUpBannerView() {
+    private fun initView() {
+        supportActionBar?.hide()
+
+        // Set up banner top
         val rvbanner =  binding.rvHomeBanner
         val bannerData = arrayListOf(R.drawable.banner1,R.drawable.banner2,R.drawable.banner3,R.drawable.banner4)
         val adapter = BannerAdapter(bannerData)
@@ -33,5 +38,12 @@ class MainActivity : AppCompatActivity() {
         rvbanner.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvbanner.adapter = adapter
         snapHelper.attachToRecyclerView(rvbanner)
+
+        //Bottom bar configuration
+        BottomSheetBehavior.from(binding.bottomBar).apply {
+            peekHeight = 250
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
     }
+
 }
