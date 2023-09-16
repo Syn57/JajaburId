@@ -1,5 +1,6 @@
 package com.folkatech.jajaburid.view.home
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,7 @@ import com.folkatech.jajaburid.view.detail.DetailActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.koin.android.ext.android.inject
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -31,9 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         //Data integration
         getData()
-
-
-
 
     }
 
