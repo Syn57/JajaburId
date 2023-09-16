@@ -21,4 +21,5 @@ data class FoodResponseItem(
 
 	@field:SerializedName("desc")
 	val desc: String? = null
+
 ):Parcelable
