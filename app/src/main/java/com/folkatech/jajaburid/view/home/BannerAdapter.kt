@@ -1,4 +1,4 @@
-package com.folkatech.jajaburid.home
+package com.folkatech.jajaburid.view.home
 
 import android.view.LayoutInflater
 import android.view.View

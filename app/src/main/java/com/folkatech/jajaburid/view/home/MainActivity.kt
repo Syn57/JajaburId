@@ -1,5 +1,6 @@
-package com.folkatech.jajaburid.home
+package com.folkatech.jajaburid.view.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import com.folkatech.jajaburid.R
 import com.folkatech.jajaburid.data.network.FoodResponseItem
 import com.folkatech.jajaburid.data.network.Resource
 import com.folkatech.jajaburid.databinding.ActivityMainBinding
+import com.folkatech.jajaburid.view.detail.DetailActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.koin.android.ext.android.inject
 
@@ -63,7 +65,13 @@ class MainActivity : AppCompatActivity() {
         val adapter = FoodAdapter(this, data)
         rvFood.layoutManager = GridLayoutManager(this, 2)
         rvFood.adapter = adapter
-
+        adapter.setOnItemClickCallback(object : FoodAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: FoodResponseItem?) {
+                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                intent.putExtra("data", data)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun initView() {

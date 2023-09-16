@@ -1,4 +1,4 @@
-package com.folkatech.jajaburid.home
+package com.folkatech.jajaburid.view.home
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -17,18 +17,22 @@ class FoodAdapter(private val context: Context, private val data: List<FoodRespo
         fun onItemClicked(data: FoodResponseItem?)
     }
 
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.iv_photo_food)
         val foodName: TextView = itemView.findViewById(R.id.tv_title_food)
         val price: TextView = itemView.findViewById(R.id.tv_price)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodAdapter.ListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
         return ListViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: FoodAdapter.ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val cover = data?.get(position)?.cover
         val price = data?.get(position)?.price
         val name = data?.get(position)?.name

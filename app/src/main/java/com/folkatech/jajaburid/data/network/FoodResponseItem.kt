@@ -1,7 +1,10 @@
 package com.folkatech.jajaburid.data.network
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class FoodResponseItem(
 
 	@field:SerializedName("cover")
@@ -18,4 +21,4 @@ data class FoodResponseItem(
 
 	@field:SerializedName("desc")
 	val desc: String? = null
-)
+):Parcelable

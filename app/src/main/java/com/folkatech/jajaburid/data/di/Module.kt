@@ -3,7 +3,7 @@ package com.folkatech.jajaburid.data.di
 import com.folkatech.jajaburid.BuildConfig
 import com.folkatech.jajaburid.data.network.ApiService
 import com.folkatech.jajaburid.data.repository.Repository
-import com.folkatech.jajaburid.home.HomeViewModel
+import com.folkatech.jajaburid.view.home.HomeViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel

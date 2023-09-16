@@ -1,4 +1,4 @@
-package com.folkatech.jajaburid.home
+package com.folkatech.jajaburid.view.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
