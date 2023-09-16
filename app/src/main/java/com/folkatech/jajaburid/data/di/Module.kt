@@ -12,8 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
-//Dependency injection or retrofit
+//Dependency injection for retrofit
 val networkModule = module {
     single {
         OkHttpClient.Builder()
@@ -32,12 +31,12 @@ val networkModule = module {
     }
 }
 
-//Dependency injection or view model
+//Dependency injection for view model
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
 }
 
-//Repository
+//Dependency injection for repository
 val repository = module {
     single { Repository(get()) }
 }

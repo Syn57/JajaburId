@@ -7,13 +7,15 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.folkatech.jajaburid.R
 
-class BannerAdapter (private val photo: ArrayList<Int>): RecyclerView.Adapter<BannerAdapter.ListViewHolder>() {
+class BannerAdapter(private val photo: ArrayList<Int>) :
+    RecyclerView.Adapter<BannerAdapter.ListViewHolder>() {
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgPhoto: ImageView = itemView.findViewById(R.id.iv_item_banner)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
+        val view: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
         return ListViewHolder(view)
     }
 

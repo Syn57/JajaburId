@@ -11,8 +11,10 @@ import com.bumptech.glide.Glide
 import com.folkatech.jajaburid.R
 import com.folkatech.jajaburid.data.network.FoodResponseItem
 
-class FoodAdapter(private val context: Context, private val data: List<FoodResponseItem?>?): RecyclerView.Adapter<FoodAdapter.ListViewHolder>() {
+class FoodAdapter(private val context: Context, private val data: List<FoodResponseItem?>?) :
+    RecyclerView.Adapter<FoodAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
+
     interface OnItemClickCallback {
         fun onItemClicked(data: FoodResponseItem?)
     }
@@ -28,7 +30,8 @@ class FoodAdapter(private val context: Context, private val data: List<FoodRespo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
+        val view: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
         return ListViewHolder(view)
     }
 
@@ -36,13 +39,12 @@ class FoodAdapter(private val context: Context, private val data: List<FoodRespo
         val cover = data?.get(position)?.cover
         val price = data?.get(position)?.price
         val name = data?.get(position)?.name
-
         Glide.with(context)
             .load(cover)
             .error(R.drawable.bg_bottom_bar)
             .into(holder.img)
         holder.foodName.text = name
-        holder.price.text = "Rp. $price"
+        holder.price.text = context.getString(R.string.rp, price)
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(data?.get(holder.adapterPosition)) }
     }
 

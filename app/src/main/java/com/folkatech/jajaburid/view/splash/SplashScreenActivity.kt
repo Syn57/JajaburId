@@ -11,7 +11,7 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        //Set up view
+        //Hide the support action bar
         supportActionBar?.hide()
         //Make the splash screen show up for 1.5 second
         Handler().postDelayed({

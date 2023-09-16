@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Jajabur Id</string>
+    <string name="rp">Rp. %d</string>
+    <string name="keranjang">+Keranjang</string>
+    <string name="drink">Drink</string>
+    <string name="food">Food</string>
+    <string name="snack">Snack</string>
+    <string name="desserts">Desserts</string>
+    <string name="top_food">Top Food</string>
+    <string name="delivery">Delivery</string>
+    <string name="my_chart">My Chart</string>
+    <string name="discount">Discount</string>
+    <string name="my_coupon">My Coupon</string>
+    <string name="live">Live</string>
+    <string name="history">History</string>
+    <string name="helpdesk">Helpdesk</string>
 </resources>

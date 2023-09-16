@@ -8,8 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-
 class Repository(private val apiService: ApiService){
+
+    //Get the response data from network and integrate it with flow coroutine
     fun getFood(): Flow<Resource<List<FoodResponseItem?>>> = flow {
         val response = apiService.getFood()
         if(response != null){

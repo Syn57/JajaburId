@@ -10,22 +10,24 @@
         android:id="@+id/iv_back"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:src="@drawable/ic_back"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="31sp"
+        android:layout_marginTop="24dp"
         android:elevation="1dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/iv_photo_detail"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:src="@drawable/banner1"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/banner1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/iv_bg_price_detail"
@@ -33,30 +35,32 @@
         android:layout_height="60dp"
         android:src="@drawable/bg_bottom_bar"
         app:layout_constraintBottom_toBottomOf="@id/iv_photo_detail"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/iv_share"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/ic_share"
         android:layout_marginEnd="31dp"
-        app:layout_constraintTop_toTopOf="@id/iv_bg_price_detail"
+        android:src="@drawable/ic_share"
         app:layout_constraintBottom_toBottomOf="@id/iv_bg_price_detail"
-        app:layout_constraintEnd_toEndOf="@id/iv_bg_price_detail"/>
+        app:layout_constraintEnd_toEndOf="@id/iv_bg_price_detail"
+        app:layout_constraintTop_toTopOf="@id/iv_bg_price_detail"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_price_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
-        android:textSize="22sp"
         android:textColor="@color/white"
-        android:text="Rp. 50.000"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_bg_price_detail"
         app:layout_constraintStart_toStartOf="@id/iv_bg_price_detail"
         app:layout_constraintTop_toTopOf="@id/iv_bg_price_detail"
-        app:layout_constraintBottom_toBottomOf="@id/iv_bg_price_detail"/>
+        tools:text="Rp. 50.000" />
 
     <TextView
         android:id="@+id/tv_title_detail"
@@ -64,32 +68,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginTop="24sp"
-        android:textStyle="bold"
         android:textSize="24sp"
-        android:text="Nasi Goreng"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_bg_price_detail"
-        app:layout_constraintStart_toStartOf="parent"/>
+        tools:text="Nasi Goreng" />
 
     <TextView
         android:id="@+id/tv_desc_detail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@id/tv_price_detail"
-        app:layout_constraintEnd_toEndOf="@id/iv_share"
-        android:text="Nasi goreng adalah sebuah makanan berupa nasi yang digoreng dan diaduk dalam minyak goreng, margarin, atau mentega. Biasanya ditambah kecap manis, bawang merah, bawang putih, asam jawa, lada dan bumbu-bumbu lainnya; seperti telur, ayam, dan kerupuk. Ada pula nasi goreng jenis lain yang dibuat bersama ikan asin yang juga populer di seluruh Indonesia."
         android:justificationMode="inter_word"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_detail"/>
+        app:layout_constraintEnd_toEndOf="@id/iv_share"
+        app:layout_constraintStart_toStartOf="@id/tv_price_detail"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_detail"
+        tools:text="Nasi goreng adalah sebuah makanan berupa nasi yang digoreng dan diaduk dalam minyak goreng, margarin, atau mentega. Biasanya ditambah kecap manis, bawang merah, bawang putih, asam jawa, lada dan bumbu-bumbu lainnya; seperti telur, ayam, dan kerupuk. Ada pula nasi goreng jenis lain yang dibuat bersama ikan asin yang juga populer di seluruh Indonesia." />
 
     <Button
         android:id="@+id/btn_chart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/tv_price_detail"
-        app:layout_constraintEnd_toEndOf="@id/iv_share"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="14dp"
-        android:text="+Keranjang"/>
-
+        android:text="@string/keranjang"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/iv_share"
+        app:layout_constraintStart_toStartOf="@id/tv_price_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
