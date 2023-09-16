@@ -1,17 +1,23 @@
-package com.folkatech.jajaburid.view
+package com.folkatech.jajaburid.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.SnapHelper
 import com.folkatech.jajaburid.R
+import com.folkatech.jajaburid.data.network.FoodResponseItem
+import com.folkatech.jajaburid.data.network.Resource
 import com.folkatech.jajaburid.databinding.ActivityMainBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val homeViewModel: HomeViewModel by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //View binding initiation
@@ -21,9 +27,42 @@ class MainActivity : AppCompatActivity() {
         //View configuration
         initView()
 
+        //Data integration
+        getData()
 
 
 
+
+    }
+
+    private fun getData() {
+        homeViewModel.data.observe(this){
+            if(it != null){
+                when (it){
+                    is Resource.Loading -> {
+                        //Shimmer layout on
+                        binding.shimmer.visibility = View.VISIBLE
+                        binding.shimmer.startShimmer()
+                    }
+                    is Resource.Success -> {
+                        binding.shimmer.visibility = View.GONE
+                        Log.d("TAG", "onCreate: ${it.data?.size}")
+                        showData(it.data)
+
+                    }
+                    is Resource.Error -> {
+                        Log.d("TAG", "onCreate: Error boss")
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showData(data: List<FoodResponseItem?>?) {
+        val rvFood = binding.rvListFood
+        val adapter = FoodAdapter(this, data)
+        rvFood.layoutManager = GridLayoutManager(this, 2)
+        rvFood.adapter = adapter
 
     }
 

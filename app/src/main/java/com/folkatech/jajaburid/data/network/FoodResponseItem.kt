@@ -1,4 +1,4 @@
-package com.folkatech.jajaburid.data
+package com.folkatech.jajaburid.data.network
 
 import com.google.gson.annotations.SerializedName
 
